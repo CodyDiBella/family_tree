@@ -1,16 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes component
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import LandingPage from './pages/LandingPage';
 import IndividualMemberPage from './pages/IndividualMemberPage';
 
 function App() {
   return (
-    <Router>
-      <Routes> {/* Wrap Route components with Routes */}
-        <Route exact path="/" element={<LandingPage />} /> {/* Use element prop */}
-        <Route path="/member/:id" element={<IndividualMemberPage />} /> {/* Use element prop */}
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Router>
+          <Routes> 
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/member/:id" element={<IndividualMemberPage />} /> 
+          </Routes>
+        </Router>
+      </div>
+    </ThemeProvider>
   );
 }
 

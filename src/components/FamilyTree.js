@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-import { Grid, Card, CardHeader, Avatar, Typography } from '@mui/material'; // Import necessary MUI components
+import { Grid, Card, CardHeader, Avatar, Typography } from '@mui/material';
 
 const FamilyTree = () => {
   const [familyMembers, setFamilyMembers] = useState([]);
@@ -34,14 +34,14 @@ const FamilyTree = () => {
             <Card component={Link} to={`/member/${member.id}`} sx={{ maxWidth: 200, margin: 'auto' }}>
               <Avatar src={member.imageURL} sx={{ width: 200, height: 200, borderRadius: 5, margin: 'auto' }} />
               <CardHeader
-                title={member.name}
+                title={<Typography variant="h5" color="white">{member.name}</Typography>}
                 subheader={
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" color="white">
                       {member.birthYear}
                     </Typography>
                     {member.deathYear && (
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="body2" color="white">
                         - {member.deathYear}
                       </Typography>
                     )}
